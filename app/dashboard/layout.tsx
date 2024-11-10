@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
-
+import "../globals.css";
+import { ApplicationLayout } from "./design/ApplicationLayout";
+import { Content } from "./design/Content";
+import { Header } from "./design/Header";
+import { Sidebar } from "./design/Sidebar";
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "../fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "../fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -24,14 +27,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
         <div className = "h-screen w-screen flex  justify-center items-center">
-            {children}
+        <ApplicationLayout>
+          <Header>
+            🎬 Cinetica
+          </Header>
+          <Sidebar></Sidebar>
+          <Content>{children}</Content>
+        </ApplicationLayout>
         </div>
-      </body>
-    </html>
   );
 }
