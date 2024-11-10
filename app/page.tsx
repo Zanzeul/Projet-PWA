@@ -45,7 +45,7 @@ export default function Home() {
       <form onSubmit={handleSubmit}>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-5">
-              <Label htmlFor="name">Nom d'utilisateur ou mail</Label>
+              <Label htmlFor="name">Nom d&apos;utilisateur ou mail</Label>
               <Input  
                 id="username"
                 placeholder="username"
