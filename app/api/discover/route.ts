@@ -1,23 +1,31 @@
-import { NextResponse } from 'next/server'; // Utilisez NextResponse pour les réponses
+import { NextResponse } from 'next/server';
 import { Movies } from '../../../entities/Movies';
 import { TVShows } from '../../../entities/TVShows';
 
 const movie_url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=fr-FR&page=1&sort_by=popularity.desc';
 const show_url = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=fr-FR&page=1&sort_by=popularity.desc';
 
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NmYyNzY4NzU0NmYyMDY3MzMzNDYyOWUwNGRjOWM3MCIsIm5iZiI6MTczMDgyMDExOS45OTIzMTUzLCJzdWIiOiI2NzJhMzM5YjE0ZDRhMzk5NzIwMzU2MDAiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0._QOFs8qsJmlp3C3eUZVLptw2xG6B6LBwBLQdldX4m2A'
-  }
-};
-
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    // Récupérer le token JWT depuis les en-têtes de la requête
+    const token = request.headers.get('Authorization')?.split(' ')[1]; // Récupère le token dans le format "Bearer token"
+
+    if (!token) {
+      return NextResponse.json({ error: 'Token manquant ou invalide' }, { status: 401 });
+    }
+
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${token}`, // Utilisation du token récupéré
+      },
+    };
+
+    // Effectuer les requêtes en parallèle
     const [movieResponse, showResponse] = await Promise.all([
       fetch(movie_url, options),
-      fetch(show_url, options)
+      fetch(show_url, options),
     ]);
 
     if (!movieResponse.ok || !showResponse.ok) {
@@ -32,7 +40,7 @@ export async function GET() {
       title: item.title,
       overview: item.overview,
       releaseDate: item.releaseDate,
-      posterPath: item.posterPath
+      posterPath: item.posterPath,
     }));
 
     const show: TVShows[] = showData.results.map((item: TVShows) => ({
@@ -40,7 +48,7 @@ export async function GET() {
       name: item.name,
       overview: item.overview,
       releaseDate: item.releaseDate,
-      posterPath: item.posterPath
+      posterPath: item.posterPath,
     }));
 
     return NextResponse.json({ movie, show }, { status: 200 });

@@ -32,6 +32,9 @@ export async function middleware(request: NextRequest) {
           headers,
         },
       });
+    } else {
+      // Si pas de token, renvoyez une erreur (ou redirigez, selon votre logique)
+      return NextResponse.json({ error: 'Token manquant ou invalide' }, { status: 401 });
     }
   }
 
