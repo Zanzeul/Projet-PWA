@@ -4,17 +4,18 @@ import useCredentials from "../hook/useCredential";
 
 // Création du contexte
 export const LoginContext = createContext<{
-    credentials: { username: string; password: string };
+    credentials: { username: string; password: string;apikey:string};
     setUsername: (username: string) => void;
     setPassword: (password: string) => void;
+    setApikey: (apikey : string) => void;
 } | null>(null);
 
 // Provider du contexte
 const LoginProvider = ({ children }: { children: ReactNode }) => {
-    const { credentials, setPassword, setUsername } = useCredentials();
+    const { credentials, setPassword, setUsername,setApikey } = useCredentials();
 
     return (
-        <LoginContext.Provider value={{ credentials, setPassword, setUsername }}>
+        <LoginContext.Provider value={{ credentials, setPassword, setUsername,setApikey }}>
             {children}
         </LoginContext.Provider>
     );
