@@ -2,17 +2,25 @@ import { NextResponse } from 'next/server';
 import { TVShows } from '../../../../entities/TVShows';
 
 const url = 'https://api.themoviedb.org/3/tv/on_the_air?language=fr-FR&page=1';
-const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMTIxN2Y3ZDk1YTNlOTVjMmI0MGNmYjVmYWZiYzRjNiIsIm5iZiI6MTczMDg5NTQxNy4xNTg0OTc4LCJzdWIiOiI2NzJiNTVjYjQyNGNjNmEzYmUyZTRkNDIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.0FIVhsB8iRD3NkXdeFiXinVw8Jxe6BMniB2_YDUJAHo'
-    }
-  };
 
-export async function GET(
+
+export async function GET( request : Request
 ) {
     try {
+
+        const token = request.headers.get('Authorization')?.split(' ')[1]; // Récupère le token dans le format "Bearer token"
+
+        if (!token) {
+          return NextResponse.json({ error: 'Token manquant ou invalide' }, { status: 401 });
+        }
+    
+        const options = {
+          method: 'GET',
+          headers: {
+            accept: 'application/json',
+            Authorization: `Bearer ${token}`, // Utilisation du token récupéré
+          },
+        };
 
         // 1. Récupérer les données depuis l'URL externe
         const response = await fetch(url,options);
