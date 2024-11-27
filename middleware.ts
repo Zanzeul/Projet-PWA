@@ -26,7 +26,7 @@ export async function middleware(request: NextRequest) {
 
     if (token) {
       const headers = new Headers(request.headers);
-      headers.set('Authorization', `Bearer ${token}`);
+      headers.set('Authorization', `Bearer ${token.apikey}`);
       return NextResponse.next({
         request: {
           headers,
@@ -44,5 +44,5 @@ export async function middleware(request: NextRequest) {
 
 // Export de la configuration du middleware à la fin du fichier
 export const config = {
-  matcher: ['/dashboard/:path*', '/api/:path*'],
+  matcher: ['/dashboard/:path*', '/api/discover', '/api/movies/:path*','/api/shows/:path*'],
 };
