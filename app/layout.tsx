@@ -1,3 +1,5 @@
+
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -24,15 +26,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className = "h-screen w-screen flex  justify-center items-center">
-          <LoginProvider>
-            {children}
-          </LoginProvider>
+            <LoginProvider>
+               {children}
+            </LoginProvider>
         </div>
       </body>
     </html>

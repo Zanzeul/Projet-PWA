@@ -8,8 +8,8 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useLoginContext } from "../context/loginContext"
-import useLoginHandler from "./useLoginHandler"
+import { useLoginContext } from "../../context/loginContext"
+import useLoginHandler from "../useCase/useLoginHandler"
 
 
 export const LoginCard = ()  => {

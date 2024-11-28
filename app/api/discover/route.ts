@@ -7,8 +7,8 @@ const show_url = 'https://api.themoviedb.org/3/discover/tv?include_adult=false&i
 
 export async function GET(request: Request) {
   try {
-    // Récupérer le token JWT depuis les en-têtes de la requête
-    const token = request.headers.get('Authorization')?.split(' ')[1]; // Récupère le token dans le format "Bearer token"
+   
+    const token = request.headers.get('Authorization')?.split(' ')[1]; 
 
     if (!token) {
       return NextResponse.json({ error: 'Token manquant ou invalide' }, { status: 401 });
@@ -18,11 +18,11 @@ export async function GET(request: Request) {
       method: 'GET',
       headers: {
         accept: 'application/json',
-        Authorization: `Bearer ${token}`, // Utilisation du token récupéré
+        Authorization: `Bearer ${token}`, 
       },
     };
 
-    // Effectuer les requêtes en parallèle
+    
     const [movieResponse, showResponse] = await Promise.all([
       fetch(movie_url, options),
       fetch(show_url, options),

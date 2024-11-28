@@ -1,11 +1,6 @@
-'use client'
+import { redirect } from "next/navigation";
 
-import { LoginCard } from "./login/loginCard"
-
-
-export default function Home() {
-
-  return (
-   <LoginCard/>
-  )
+export default function RedirectPage() {
+  redirect("/dashboard/accueil");
 }
+
