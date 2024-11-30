@@ -12,8 +12,9 @@ export class MovieRepositoryTMDB implements MovieRepository{
                 return Error("Cquetuveux")
             }
 
-             return response.json()
-
+             const data = await response.json()
+            
+             return data
 
         }
 
@@ -30,7 +31,7 @@ export class MovieRepositoryTMDB implements MovieRepository{
             }
 
             const data = await response.json()
-            console.log("blablabla")
+
             return data
 
         }

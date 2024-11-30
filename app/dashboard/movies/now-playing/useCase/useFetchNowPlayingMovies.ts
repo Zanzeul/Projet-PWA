@@ -12,7 +12,5 @@ export const useFetchNowPlayingMovies = () => {
         queryFn: async () => await movieRepository.getNowPlayingMovies(),
      });
 
-     console.log(data)
-
      return { movie : data, isLoading, isError};
 };

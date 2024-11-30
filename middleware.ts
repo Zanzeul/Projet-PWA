@@ -13,7 +13,7 @@ export async function middleware(request: NextRequest) {
     const token = await getToken({ req: request, secret });
     console.log("Token récupéré :", token);
     
-    if (!token) {
+    if (!token || (Date.now/1000 >= token.exp)) {
     
       return NextResponse.redirect(new URL('/login', request.url));
     }
@@ -23,7 +23,7 @@ export async function middleware(request: NextRequest) {
   if (pathname.startsWith('/api')) {
     const token = await getToken({ req: request, secret });
 
-    if (token) {
+    if (token && (Date.now/1000 >= token.exp)) {
       const headers = new Headers(request.headers);
       headers.set('Authorization', `Bearer ${token.apikey}`);
       return NextResponse.next({
@@ -39,7 +39,7 @@ export async function middleware(request: NextRequest) {
 
   if(pathname.startsWith("/login")){
     const token = await getToken({req : request, secret})
-    if(token){
+    if(token && (Date.now()/1000 <= token.exp)){
       return NextResponse.redirect(new URL('/dashboard/accueil', request.url))
     }
   }
