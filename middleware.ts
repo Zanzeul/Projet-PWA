@@ -5,25 +5,24 @@ import type { NextRequest } from 'next/server';
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-
+  const date = Date.now()/1000;
   const secret = process.env.NEXTAUTH_SECRET;
-
+  const token = await getToken({ req: request, secret });
+  const expiration = <number>token?.exp;
 
   if (pathname.startsWith('/dashboard')) {
-    const token = await getToken({ req: request, secret });
-    console.log("Token récupéré :", token);
     
-    if (!token || (Date.now/1000 >= token.exp)) {
-    
+    if (!token || (token && date >= expiration)) {
       return NextResponse.redirect(new URL('/login', request.url));
     }
+
   }
 
   
   if (pathname.startsWith('/api')) {
     const token = await getToken({ req: request, secret });
 
-    if (token && (Date.now/1000 >= token.exp)) {
+    if (token && (date >= expiration)) {
       const headers = new Headers(request.headers);
       headers.set('Authorization', `Bearer ${token.apikey}`);
       return NextResponse.next({
@@ -39,7 +38,7 @@ export async function middleware(request: NextRequest) {
 
   if(pathname.startsWith("/login")){
     const token = await getToken({req : request, secret})
-    if(token && (Date.now()/1000 <= token.exp)){
+    if(token && (date<= expiration)){
       return NextResponse.redirect(new URL('/dashboard/accueil', request.url))
     }
   }
