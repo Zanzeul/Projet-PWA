@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { TVShows } from '../../../../entities/TVShows';
 
-const url = 'https://api.themoviedb.org/3/movie/popular?language=fr-FR&page=1';
+const url = 'https://api.themoviedb.org/3/tv/popular?language=fr-FR&page=1';
 
 
 export async function GET(request : Request
@@ -35,7 +35,7 @@ export async function GET(request : Request
       
         const shows: TVShows[] = data.results.map((item: TVShows) => ({
             id: item.id,
-            title: item.name,
+            name: item.name,
             overview: item.overview,
             releaseDate: item.releaseDate,  
             posterPath: item.posterPath,

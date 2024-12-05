@@ -35,7 +35,7 @@ export async function GET( request : Request
 
         const shows: TVShows[] = data.results.map((item: TVShows) => ({
             id: item.id,
-            title: item.name,
+            name: item.name,
             overview: item.overview,
             releaseDate: item.releaseDate,  
             posterPath: item.posterPath,

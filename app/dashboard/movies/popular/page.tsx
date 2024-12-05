@@ -18,7 +18,7 @@ export default function PopularMovie() {
         <div>
             {movie?.map((movie) => 
                 <p key={movie.id}>{movie.title}</p>
-            )};
+            )}
         </div>
     );
 }

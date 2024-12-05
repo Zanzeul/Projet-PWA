@@ -1,7 +1,9 @@
 import { MovieRepository } from "./interfaces/MovieRepository";
+import { ShowRepository } from "./interfaces/ShowRepository";
 import { Movies } from "@/entities/Movies";
+import { TVShows } from "@/entities/TVShows";
 
-export class MovieRepositoryTMDB implements MovieRepository{
+export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowRepository{
 
     getPopularMovies(): Promise<Movies[]> {
         
@@ -57,4 +59,58 @@ export class MovieRepositoryTMDB implements MovieRepository{
         return await fetchNowPlayingdMovies() 
     }
 
+    getPopularShows(): Promise<TVShows[]> {
+        
+        async function fetchPopShows() {
+            const response = await fetch("/api/shows/popular")
+
+            if(!response.ok){
+                return Error("Cquetuveux")
+            }
+
+             const data = await response.json()
+            
+             return data
+
+        }
+
+        return fetchPopShows()
+    }
+
+    getTopRatedShows(): Promise<TVShows[]> {
+        
+        async function fetchTopRatedShows() {
+            const response = await fetch("/api/shows/top-rated")
+
+            if(!response.ok){
+                return Error("Cquetuveux")
+            }
+
+             const data = await response.json()
+            
+             return data
+
+        }
+
+        return fetchTopRatedShows()
+    }
+
+    getOnTheAirShows(): Promise<TVShows[]> {
+        
+        async function fetchOnTheAirShows() {
+            const response = await fetch("/api/shows/on-the-air")
+
+            if(!response.ok){
+                return Error("Cquetuveux")
+            }
+
+             const data = await response.json()
+             
+            
+             return data
+
+        }
+
+        return fetchOnTheAirShows()
+    }
 }

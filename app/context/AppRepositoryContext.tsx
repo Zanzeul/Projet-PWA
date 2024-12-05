@@ -1,12 +1,14 @@
 'use client'
 import { MovieRepository } from "@/repositories/interfaces/MovieRepository";
-import { MovieRepositoryTMDB } from "@/repositories/MovieRepositoryTMDB";
+import { ShowRepository } from "@/repositories/interfaces/ShowRepository";
+import { MovieAndShowsRepositoryTMDB } from "@/repositories/MovieRepositoryTMDB";
 import { useContext, createContext } from "react";
 import { PropsWithChildren } from "react";
 
 
 interface Repository{
     movieRepository : MovieRepository;
+    showRepository : ShowRepository;
 }
 
 const AppRepositoryContext= createContext <Repository | null >(null);
@@ -23,7 +25,7 @@ export const useAppRepositoryContext = () => {
 
 const AppRepositoryContextProvider = ({children} : PropsWithChildren) => {
     return (
-       <AppRepositoryContext.Provider value = {{ movieRepository : new MovieRepositoryTMDB() }}>
+       <AppRepositoryContext.Provider value = {{ movieRepository : new MovieAndShowsRepositoryTMDB(), showRepository : new MovieAndShowsRepositoryTMDB}}>
             {children}
         </AppRepositoryContext.Provider> 
     )
