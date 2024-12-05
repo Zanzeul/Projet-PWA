@@ -9,6 +9,7 @@ export async function middleware(request: NextRequest) {
   const secret = process.env.NEXTAUTH_SECRET;
   const token = await getToken({ req: request, secret });
   const expiration = <number>token?.exp;
+  console.log(expiration - date)
 
   if (pathname.startsWith('/dashboard')) {
     
@@ -22,7 +23,7 @@ export async function middleware(request: NextRequest) {
   if (pathname.startsWith('/api')) {
     const token = await getToken({ req: request, secret });
 
-    if (token && (date >= expiration)) {
+    if (token && (date <= expiration)) {
       const headers = new Headers(request.headers);
       headers.set('Authorization', `Bearer ${token.apikey}`);
       return NextResponse.next({

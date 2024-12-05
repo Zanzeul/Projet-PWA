@@ -1,8 +1,8 @@
 'use client'
-import { useFetchNowPlayingMovies } from "./useCase/useFetchNowPlayingMovies";
+import { useFetchPopularMovies } from "./useCase/useFetchPopularMovies";
 
-export default function NowPlayingMovie() {
-    const { movie, isError, isLoading } = useFetchNowPlayingMovies();
+export default function PopularMovie() {
+    const { movie, isError, isLoading } = useFetchPopularMovies();
 
     if (isLoading) {
         return <p>Chargement en cours...</p>;
