@@ -5,7 +5,7 @@ import { LayoutGrid, Film, Users, Smile, Airplay} from "lucide-react"
 export const Sidebar = ({ children }: PropsWithChildren) => {
   const router = useRouter();
   return (
-    <div className="bg-white w-full h-full border-r border-black flex flex-col pt-3" style={{ gridArea: "sidebar" }}>
+    <div className="hidden bg-white w-full h-full border-r border-black flex flex-col pt-3" style={{ gridArea: "sidebar" }}>
       <button className = "text-xl flex justify-start p-2"><LayoutGrid></LayoutGrid> Discover</button>
       <p className = "text-gray-400 pl-2">Movies </p>
       <button onClick = { () => {router.push("/dashboard/movies/now-playing")}} className = "text-xl flex justify-start p-2"><Film></Film> Now-playing</button>

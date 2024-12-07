@@ -38,7 +38,7 @@ export async function GET( request : Request
             name: item.name,
             overview: item.overview,
             first_air_date: item.first_air_date,  
-            poster_path: "https://image.tmdb.org/t/p/original/" + item.poster_path,
+            poster_path: "https://image.tmdb.org/t/p/w500/" + item.poster_path,
         }));
 
        

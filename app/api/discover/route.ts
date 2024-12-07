@@ -39,8 +39,8 @@ export async function GET(request: Request) {
       id: item.id,
       title: item.title,
       overview: item.overview,
-      releaseDate: item.releaseDate,
-      posterPath: item.posterPath,
+      release_date: item.release_date,  
+      poster_path: "https://image.tmdb.org/t/p/w500/" + item.poster_path,
     }));
 
     const show: TVShows[] = showData.results.map((item: TVShows) => ({
@@ -48,7 +48,7 @@ export async function GET(request: Request) {
       name: item.name,
       overview: item.overview,
       first_air_date: item.first_air_date,
-      poster_path: "https://image.tmdb.org/t/p/original/" + item.poster_path,
+      poster_path: "https://image.tmdb.org/t/p/w500/" + item.poster_path,
     }));
 
     return NextResponse.json({ movie, show }, { status: 200 });

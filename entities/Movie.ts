@@ -1,4 +1,4 @@
-export interface Movies {
+export interface Movie {
     id: string;                // Identifiant unique du film
     title: string;             // Titre du film
     overview: string;          // Synopsis du film

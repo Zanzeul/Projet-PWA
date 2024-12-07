@@ -5,7 +5,7 @@ export const ApplicationLayout = (props: PropsWithChildren) => {
     <div
       className="h-screen w-screen grid"
       style={{
-        gridTemplateAreas: `'header header' 'sidebar content'`,
+        gridTemplateAreas: `'header header' 'content content'`,
         gridTemplateColumns: "250px 1fr",
         gridTemplateRows: "60px 1fr",
       }}

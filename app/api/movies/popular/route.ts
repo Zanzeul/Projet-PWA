@@ -36,8 +36,8 @@ export async function GET( request : Request
             id: item.id,
             title: item.title,
             overview: item.overview,
-            releaseDate: item.releaseDate,  
-            posterPath: item.posterPath,
+            release_date: item.release_date,  
+            poster_path: "https://image.tmdb.org/t/p/w500/" + item.poster_path,
         }));
 
         
