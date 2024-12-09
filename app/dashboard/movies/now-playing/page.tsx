@@ -33,7 +33,9 @@ export default function NowPlayingMovie() {
     console.log(movie)
 
     return (
+
       <div>
+        <h2> Now Playing Movies</h2>
       <div className="hidden md:block">
        <div className=" flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%] no-scrollbar ">
             {movie?.map((movie) => 
