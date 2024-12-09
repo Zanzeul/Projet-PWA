@@ -64,7 +64,7 @@ export default function NowPlayingMovie() {
                 <CardHeader>
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex aspect-[9/12] items-center justify-center p-6">
+                <CardContent className="flex aspect-[9/16] items-center justify-center p-6">
                      <img className="w-[90%]" src={movie.poster_path}/>
                 </CardContent>
                 <CardFooter>
