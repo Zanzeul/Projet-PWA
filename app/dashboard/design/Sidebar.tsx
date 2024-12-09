@@ -67,8 +67,9 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
             onClick={() => router.push("/dashboard/discover")}
             className="flex flex-col items-center"
           >
+             <span>Discover</span>
             <LayoutGrid size={24} />
-            <span>Discover</span>
+           
           </button>
 
           {/* Section Movies */}
