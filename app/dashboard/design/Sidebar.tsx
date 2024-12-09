@@ -60,62 +60,63 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
       </div>
 
       {/* Sidebar pour écran mobile */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-black py-3">
-        <div className="flex flex-col items-center space-y-2">
-          {/* Bouton Discover */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-black py-2">
+        <div className="flex justify-around items-center text-xs">
+          {/* Section Discover */}
           <button
             onClick={() => router.push("/dashboard/discover")}
-            className="flex items-center"
+            className="flex flex-col items-center"
           >
-            <LayoutGrid size={28} />
+            <LayoutGrid size={24} />
+            <span>Discover</span>
           </button>
 
           {/* Section Movies */}
           <div className="flex flex-col items-center">
-            <p className="text-gray-400 text-xs mb-1">Movies</p>
-            <div className="flex space-x-4">
+            <span className="text-gray-400">Movies</span>
+            <div className="flex space-x-2">
               <button
                 onClick={() => router.push("/dashboard/movies/now-playing")}
                 className="flex items-center"
               >
-                <Film size={28} />
+                <Film size={24} />
               </button>
               <button
                 onClick={() => router.push("/dashboard/movies/popular")}
                 className="flex items-center"
               >
-                <Users size={28} />
+                <Users size={24} />
               </button>
               <button
                 onClick={() => router.push("/dashboard/movies/top-rated")}
                 className="flex items-center"
               >
-                <Smile size={28} />
+                <Smile size={24} />
               </button>
             </div>
           </div>
 
           {/* Section Shows */}
           <div className="flex flex-col items-center">
-            <p className="text-gray-400 text-xs mb-1">Shows</p>
-            <div className="flex space-x-4">
+            <span className="text-gray-400">Shows</span>
+            <div className="flex space-x-2">
               <button
                 onClick={() => router.push("/dashboard/shows/on-the-air")}
                 className="flex items-center"
               >
-                <Airplay size={28} />
+                <Airplay size={24} />
               </button>
               <button
                 onClick={() => router.push("/dashboard/shows/popular")}
                 className="flex items-center"
               >
-                <Users size={28} />
+                <Users size={24} />
               </button>
               <button
                 onClick={() => router.push("/dashboard/shows/top-rated")}
                 className="flex items-center"
               >
-                <Smile size={28} />
+                <Smile size={24} />
               </button>
             </div>
           </div>
