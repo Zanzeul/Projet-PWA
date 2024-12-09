@@ -60,7 +60,7 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
       </div>
 
       {/* Sidebar pour écran mobile */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-black py-2">
+      <div className=" overflow-hidden lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-black py-2">
         <div className="flex justify-around items-center text-xs">
           {/* Section Discover */}
           <button
