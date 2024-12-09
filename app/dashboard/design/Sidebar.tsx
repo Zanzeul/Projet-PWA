@@ -68,7 +68,7 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
             className="flex flex-col items-center text-sm"
           >
             <LayoutGrid size={20} />
-            <span className="text-xs">Discover</span>
+           
           </button>
 
           {/* Section Movies */}
@@ -80,21 +80,21 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
                 className="flex flex-col items-center"
               >
                 <Film size={20} />
-                <span className="text-xs">Now-playing</span>
+                
               </button>
               <button
                 onClick={() => router.push("/dashboard/movies/popular")}
                 className="flex flex-col items-center"
               >
                 <Users size={20} />
-                <span className="text-xs">Popular</span>
+                
               </button>
               <button
                 onClick={() => router.push("/dashboard/movies/top-rated")}
                 className="flex flex-col items-center"
               >
                 <Smile size={20} />
-                <span className="text-xs">Top-rated</span>
+                
               </button>
             </div>
           </div>
@@ -108,21 +108,21 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
                 className="flex flex-col items-center"
               >
                 <Airplay size={20} />
-                <span className="text-xs">On-the-air</span>
+              
               </button>
               <button
                 onClick={() => router.push("/dashboard/shows/popular")}
                 className="flex flex-col items-center"
               >
                 <Users size={20} />
-                <span className="text-xs">Popular</span>
+                
               </button>
               <button
                 onClick={() => router.push("/dashboard/shows/top-rated")}
                 className="flex flex-col items-center"
               >
                 <Smile size={20} />
-                <span className="text-xs">Top-rated</span>
+                
               </button>
             </div>
           </div>
