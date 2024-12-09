@@ -55,7 +55,7 @@ export default function NowPlayingMovie() {
         </div>
         </div>
         <div className="md:hidden -w-full h-full flex items-center justify-center"> {/* Parent pleine hauteur */}
-           <Carousel className="w-full w-max-sm ">
+           <Carousel className="w-full w-max-sm overflow-hidden ">
           <CarouselContent>
          {movie?.map((movie) => (
           <CarouselItem key={movie.id}>
