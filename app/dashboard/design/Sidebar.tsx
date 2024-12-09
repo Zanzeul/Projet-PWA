@@ -60,71 +60,72 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
       </div>
 
       {/* Sidebar pour écran mobile */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-black py-3 space-y-2">
-        <div className="flex justify-evenly items-center">
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-black py-2">
+        <div className="flex justify-around items-center">
           {/* Bouton Discover */}
           <button
             onClick={() => router.push("/dashboard/discover")}
-            className="flex flex-col items-center text-xl"
+            className="flex flex-col items-center text-sm"
           >
-            <LayoutGrid />
+            <LayoutGrid size={20} />
             <span className="text-xs">Discover</span>
           </button>
-        </div>
 
-        <div>
-          <div className="w-full text-center text-gray-400">Movies</div>
-          <div className="flex justify-evenly w-full">
-            <button
-              onClick={() => router.push("/dashboard/movies/now-playing")}
-              className="flex flex-col items-center text-xl"
-            >
-              <Film />
-              <span className="text-xs">Now-playing</span>
-            </button>
-            <button
-              onClick={() => router.push("/dashboard/movies/popular")}
-              className="flex flex-col items-center text-xl"
-            >
-              <Users />
-              <span className="text-xs">Popular</span>
-            </button>
-            <button
-              onClick={() => router.push("/dashboard/movies/top-rated")}
-              className="flex flex-col items-center text-xl"
-            >
-              <Smile />
-              <span className="text-xs">Top-rated</span>
-            </button>
+          {/* Section Movies */}
+          <div className="flex flex-col items-center text-sm">
+            <p className="text-gray-400 text-xs">Movies</p>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => router.push("/dashboard/movies/now-playing")}
+                className="flex flex-col items-center"
+              >
+                <Film size={20} />
+                <span className="text-xs">Now-playing</span>
+              </button>
+              <button
+                onClick={() => router.push("/dashboard/movies/popular")}
+                className="flex flex-col items-center"
+              >
+                <Users size={20} />
+                <span className="text-xs">Popular</span>
+              </button>
+              <button
+                onClick={() => router.push("/dashboard/movies/top-rated")}
+                className="flex flex-col items-center"
+              >
+                <Smile size={20} />
+                <span className="text-xs">Top-rated</span>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div className="w-full text-center text-gray-400 mt-2">Shows</div>
-          <div className="flex justify-evenly w-full">
-            <button
-              onClick={() => router.push("/dashboard/shows/on-the-air")}
-              className="flex flex-col items-center text-xl"
-            >
-              <Airplay />
-              <span className="text-xs">On-the-air</span>
-            </button>
-            <button
-              onClick={() => router.push("/dashboard/shows/popular")}
-              className="flex flex-col items-center text-xl"
-            >
-              <Users />
-              <span className="text-xs">Popular</span>
-            </button>
-            <button
-              onClick={() => router.push("/dashboard/shows/top-rated")}
-              className="flex flex-col items-center text-xl"
-            >
-              <Smile />
-              <span className="text-xs">Top-rated</span>
-            </button>
+          {/* Section Shows */}
+          <div className="flex flex-col items-center text-sm">
+            <p className="text-gray-400 text-xs">Shows</p>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => router.push("/dashboard/shows/on-the-air")}
+                className="flex flex-col items-center"
+              >
+                <Airplay size={20} />
+                <span className="text-xs">On-the-air</span>
+              </button>
+              <button
+                onClick={() => router.push("/dashboard/shows/popular")}
+                className="flex flex-col items-center"
+              >
+                <Users size={20} />
+                <span className="text-xs">Popular</span>
+              </button>
+              <button
+                onClick={() => router.push("/dashboard/shows/top-rated")}
+                className="flex flex-col items-center"
+              >
+                <Smile size={20} />
+                <span className="text-xs">Top-rated</span>
+              </button>
+            </div>
           </div>
-          {children}
         </div>
       </div>
     </div>
