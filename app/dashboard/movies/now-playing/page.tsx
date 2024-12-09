@@ -55,7 +55,7 @@ export default function NowPlayingMovie() {
         </div>
         </div>
         <div className="md:hidden -w-full h-full flex items-center justify-center"> {/* Parent pleine hauteur */}
-           <Carousel className="w-full w-max-sm  ">
+           <Carousel className="w-full h-max-full w-max-sm  ">
           <CarouselContent>
          {movie?.map((movie) => (
           <CarouselItem key={movie.id}>
@@ -65,7 +65,7 @@ export default function NowPlayingMovie() {
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex aspect-[9/11] items-center justify-center p-6">
-                     <img className="w-[90%] w-max-full" src={movie.poster_path}/>
+                     <img className="w-[90%] w-max-full h-max-full" src={movie.poster_path}/>
                 </CardContent>
                 <CardFooter>
                     <p>{movie.release_date}</p>
