@@ -40,7 +40,7 @@ export async function middleware(request: NextRequest) {
   if(pathname.startsWith("/login")){
     const token = await getToken({req : request, secret})
     if(token && (date<= expiration)){
-      return NextResponse.redirect(new URL('/dashboard/accueil', request.url))
+      return NextResponse.redirect(new URL('/dashboard', request.url))
     }
   }
 
