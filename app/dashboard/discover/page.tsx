@@ -22,7 +22,7 @@ export default function Discover() {
     console.log(discover)
     console.log(discover?.movie)
     return (
-        <div className="overflow-hidden">
+        <div>
             <h1 className="m-10">Discover Movies</h1>
             <div className="flex gap-2 overflow-auto mx-5 h-[65%]= ">
             {discover?.movie.map((movie) => 

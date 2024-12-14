@@ -52,20 +52,21 @@ export default function PopularMovie() {
             )}
         </div>
         </div>
-        <div className="md:hidden -w-full h-full flex items-center justify-center"> {/* Parent pleine hauteur */}
-           <Carousel className="w-full w-max-sm ">
+        <div className="md:hidden"> {/* Parent pleine hauteur */}
+           <Carousel>
           <CarouselContent>
          {movie?.map((movie) => (
           <CarouselItem key={movie.id}>
             <div className="p-2">
-              <Card className=" bg-gray-50">
-                <CardHeader>
+              <Card className="bg-gray-50 ">
+                <CardHeader className="flex justify-center items-center flex-col">
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex aspect-[9/12] items-center justify-center p-6">
-                     <img className="w-[90%]" src={movie.poster_path}/>
+                <CardContent className="flex justify-center items-center flex-col" >
+                     <img className="w-[75%]"
+                      src={movie.poster_path}/>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex justify-center items-center flex-col">
                     <p>{movie.release_date}</p>
                 </CardFooter>
               </Card>
