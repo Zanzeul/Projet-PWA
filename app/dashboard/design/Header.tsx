@@ -2,7 +2,7 @@ import { PropsWithChildren } from "react";
 import { useDarkModeContext } from "@/app/context/DarkModeContext";
 import { Switch } from "@/components/ui/switch"
 import { Moon, Sun } from "lucide-react";
-import { Label } from "@/components/ui/label"
+
 
 export const Header = (props: PropsWithChildren) => {
   const {darkMode, setEtat}  = useDarkModeContext()

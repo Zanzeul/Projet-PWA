@@ -33,7 +33,7 @@ export default function ShowsTopRated() {
         <div>
         <h2> Top Rated Shows</h2>
         <div className="hidden md:block">
-           <div className="flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%] no-scrollbar">
+           <div className="flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%]">
                 {show?.map((show) => 
                      <Card onClick = { () => {router.push("/dashboard/shows/" + show.id)}} key = {show.id} className={`${
                         darkMode.etat ? 'bg-gray-800 text-white  border-black' : 'bg-gray-50'

@@ -37,7 +37,7 @@ export default function NowPlayingMovie() {
       <div>
         <h2> Now Playing Movies</h2>
         <div className="hidden md:block">
-       <div className=" flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%] no-scrollbar ">
+       <div className=" flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%]  ">
             {movie?.map((movie) => 
                 <Card onClick = { () => {router.push("/dashboard/movies/" + movie.id)}} key = {movie.id} className={`${
                   darkMode.etat ? 'bg-gray-800 text-white  border-black' : 'bg-gray-50'

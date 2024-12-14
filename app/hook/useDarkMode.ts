@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const useDarkMode = () => {
     const [darkMode, setDarkMode]  = useState({
-        etat: true,
+        etat: false,
     });
 
     const setEtat = (etat : boolean) => {
