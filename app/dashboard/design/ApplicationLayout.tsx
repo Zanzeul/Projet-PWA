@@ -6,7 +6,7 @@ export const ApplicationLayout = (props: PropsWithChildren) => {
     <div
       className="
         h-screen w-screen grid 
-        grid-rows-[10%_83%_auto]   /* Par défaut, 60px pour le header, reste pour le contenu, et une ligne pour la sidebar */
+        grid-rows-[10%_78%_auto]   /* Par défaut, 60px pour le header, reste pour le contenu, et une ligne pour la sidebar */
         md:grid-cols-[250px_1fr]   /* Sur desktop, sidebar à gauche */
         md:grid-rows-[60px_1fr]    /* Sur desktop, pas de ligne pour la sidebar en bas */
         [grid-template-areas:'header''content''sidebar'] 
