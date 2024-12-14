@@ -34,10 +34,10 @@ export default function NowPlayingMovie() {
 
     return (
 
-      <div className="overflow-hidden">
+      <div className="overflow-hidden w-screen h-screen">
         <h2 className="m-10"> Now Playing Movies</h2>
         <div className="hidden md:block">
-        <div className=" flex gap-2 overflow-auto  mx-5 h-[65%] no-scrollbar ">
+        <div className=" flex gap-2 overflow-auto  mx-5 h-[65%]  ">
             {movie?.map((movie) => 
                 <Card onClick = { () => {router.push("/dashboard/movies/detail")}} key = {movie.id} className="bg-gray-50 flex-shrink-0">
                 <CardHeader>
@@ -54,13 +54,13 @@ export default function NowPlayingMovie() {
             )}
         </div>
         </div>
-        <div className="md:hidden "> {/* Parent pleine hauteur */}
-           <Carousel>
+        <div className="md:hidden  "> {/* Parent pleine hauteur */}
+        <Carousel className="">
           <CarouselContent>
          {movie?.map((movie) => (
           <CarouselItem key={movie.id}>
-            <div className="">
-              <Card className=" bg-gray-50">
+            <div>
+              <Card className=" bg-gray-50 w-[95%] pl-10 h-full ">
                 <CardHeader>
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
