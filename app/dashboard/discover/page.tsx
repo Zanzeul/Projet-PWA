@@ -29,7 +29,7 @@ export default function Discover() {
     console.log(discover)
     console.log(discover?.movie)
     return (
-        <div className="h-[80%]">
+        <div className="h-[80%] pb-[20%]">
             <div 
             className="hidden md:block">
                 <h1 className="m-10">Discover Movies</h1>
