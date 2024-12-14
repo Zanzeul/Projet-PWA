@@ -34,12 +34,12 @@ export default function NowPlayingMovie() {
 
     return (
 
-      <div>
-        <h2> Now Playing Movies</h2>
-      <div className="hidden md:block">
-       <div className=" flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%] no-scrollbar ">
+      <div className="overflow-hidden">
+        <h2 className="m-10"> Now Playing Movies</h2>
+        <div className="hidden md:block">
+        <div className=" flex gap-2 overflow-auto  mx-5 h-[65%] no-scrollbar ">
             {movie?.map((movie) => 
-                <Card onClick = { () => {router.push("/dashboard/movies/detail")}} key = {movie.id} className="bg-gray-50 w-1/5 flex-shrink-0">
+                <Card onClick = { () => {router.push("/dashboard/movies/detail")}} key = {movie.id} className="bg-gray-50 flex-shrink-0">
                 <CardHeader>
                  <CardTitle >{movie.title}</CardTitle>
                  <CardDescription ></CardDescription>
@@ -54,18 +54,18 @@ export default function NowPlayingMovie() {
             )}
         </div>
         </div>
-        <div className="md:hidden -w-full h-full flex items-center justify-center"> {/* Parent pleine hauteur */}
-           <Carousel className="w-full h-max-full w-max-sm  ">
+        <div className="md:hidden "> {/* Parent pleine hauteur */}
+           <Carousel>
           <CarouselContent>
          {movie?.map((movie) => (
           <CarouselItem key={movie.id}>
-            <div className="p-2">
+            <div className="">
               <Card className=" bg-gray-50">
                 <CardHeader>
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="flex aspect-[9/11] items-center justify-center p-6">
-                     <img className="w-[90%] w-max-full h-max-full" src={movie.poster_path}/>
+                <CardContent className="">
+                     <img src={movie.poster_path}/>
                 </CardContent>
                 <CardFooter>
                     <p>{movie.release_date}</p>

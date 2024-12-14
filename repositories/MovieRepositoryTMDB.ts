@@ -1,9 +1,10 @@
+import { DiscoverRepository } from "./interfaces/DiscoverRepository";
 import { MovieRepository } from "./interfaces/MovieRepository";
 import { ShowRepository } from "./interfaces/ShowRepository";
 import { Movies } from "@/entities/Movies";
 import { TVShows } from "@/entities/TVShows";
 
-export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowRepository{
+export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowRepository, DiscoverRepository{
 
     getPopularMovies(): Promise<Movies[]> {
         
@@ -112,5 +113,24 @@ export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowReposit
         }
 
         return fetchOnTheAirShows()
+    }
+
+    getDiscover(): Promise<{movie : Movies[]; show : TVShows[]}> {
+        
+        async function fetchDiscover() {
+            const response = await fetch("/api/discover")
+
+            if(!response.ok){
+                return Error("Cquetuveux")
+            }
+
+             const data = await response.json()
+             
+            
+             return data
+
+        }
+
+        return fetchDiscover()
     }
 }
