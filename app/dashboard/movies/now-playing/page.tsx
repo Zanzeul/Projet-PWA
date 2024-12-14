@@ -35,7 +35,7 @@ export default function NowPlayingMovie() {
     return (
 
       <div className="overflow-hidden w-screen h-screen">
-        <h2 className="m-10"> Now Playing Movies</h2>
+        <h2> Now Playing Movies</h2>
         <div className="hidden md:block">
         <div className=" flex gap-2 overflow-auto  mx-5 h-[65%]  ">
             {movie?.map((movie) => 
@@ -61,13 +61,13 @@ export default function NowPlayingMovie() {
           <CarouselItem key={movie.id}>
             <div>
               <Card className=" bg-gray-50 w-[95%] pl-10 h-full ">
-                <CardHeader>
+                <CardHeader className="flex justify-center items-center flex-col">
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="">
+                <CardContent className="flex justify-center items-center flex-col">
                      <img src={movie.poster_path}/>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex justify-center items-center flex-col">
                     <p>{movie.release_date}</p>
                 </CardFooter>
               </Card>
