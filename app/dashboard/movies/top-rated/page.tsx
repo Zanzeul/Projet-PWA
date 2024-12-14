@@ -63,7 +63,7 @@ export default function PopularMovie() {
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex justify-center items-center flex-col" >
-                     <img className="w-[90%]"
+                     <img className="w-[75%]"
                       src={movie.poster_path}/>
                 </CardContent>
                 <CardFooter className="flex justify-center items-center flex-col">
