@@ -29,10 +29,10 @@ export default function Discover() {
     console.log(discover)
     console.log(discover?.movie)
     return (
-        <div className="h-[80%] pb-[20%]">
+        <div className="h-[80%] b-[11%]">
             <div 
             className="hidden md:block">
-                <h1 className="m-10">Discover Movies</h1>
+                <h2 className="m-10">Discover Movies</h2>
                 <div className="flex gap-2 overflow-auto mx-5 h-[65%]= ">
                 {discover?.movie.map((movie) => 
                     <Card key = {movie.id} className="bg-gray-50  flex-shrink-0">
@@ -49,7 +49,7 @@ export default function Discover() {
                     </Card>
                 )}
                 </div>
-                <h1 className="m-10">Discover Shows</h1>
+                <h2 className="m-10">Discover Shows</h2>
                 <div className="flex gap-2 overflow-auto  mx-5 h-[65%] ">
                 {discover?.show.map((show) => 
                     <Card key = {show.id} className="bg-gray-50 flex-shrink-0">
@@ -67,19 +67,19 @@ export default function Discover() {
                 )}
                 </div>
             </div>
-            <div className="md:hidden"> {/* Parent pleine hauteur */}
-            <h1 >Discover Movies</h1>
-            <Carousel>
+            <div className="md:hidden overflow-auto"> {/* Parent pleine hauteur */}
+            <h2 >Discover Movies</h2>
+            <Carousel >
                 <CarouselContent>
                     {discover?.movie.map((movie) => (
                         <CarouselItem key={movie.id}>
                             <div className="p-2">
-                                <Card className="bg-gray-50 ">
+                                <Card className="bg-gray-50  ">
                                     <CardHeader className="flex justify-center items-center flex-col">
                                         <CardTitle >{movie.title}</CardTitle>
                                     </CardHeader>
                                     <CardContent className="flex justify-center items-center flex-col" >
-                                        <img className="w-[75%]" src={movie.poster_path}/>
+                                        <img className="w-[77%]" src={movie.poster_path}/>
                                     </CardContent>
                                     <CardFooter className="flex justify-center items-center flex-col">
                                          <p>{movie.release_date}</p>
@@ -89,10 +89,8 @@ export default function Discover() {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
             </Carousel>
-            <h1 >Discover Shows</h1>
+            <h2 >Discover Shows</h2>
             <Carousel>
                 <CarouselContent>
                     {discover?.show.map((show) => (
@@ -103,7 +101,7 @@ export default function Discover() {
                                         <CardTitle >{show.name}</CardTitle>
                                     </CardHeader>
                                     <CardContent className="flex justify-center items-center flex-col" >
-                                        <img className="w-[75%]" src={show.poster_path}/>
+                                        <img className="w-[77%]" src={show.poster_path}/>
                                     </CardContent>
                                     <CardFooter className="flex justify-center items-center flex-col">
                                          <p>{show.first_air_date}</p>
@@ -113,8 +111,6 @@ export default function Discover() {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
             </Carousel>
         </div>
         </div>

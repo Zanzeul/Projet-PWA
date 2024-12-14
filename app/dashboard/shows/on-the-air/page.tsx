@@ -28,6 +28,7 @@ export default function ShowsOnTHeAIr() {
 
     return (
     <div>
+        <h2> On The Air Shows</h2>
         <div className="hidden md:block">
            <div className="flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%] no-scrollbar">
                 {show?.map((show) => 
@@ -56,7 +57,7 @@ export default function ShowsOnTHeAIr() {
                                         <CardTitle >{show.name}</CardTitle>
                                     </CardHeader>
                                     <CardContent className="flex justify-center items-center flex-col" >
-                                        <img className="w-[75%]" src={show.poster_path}/>
+                                        <img className="w-[77%]" src={show.poster_path}/>
                                     </CardContent>
                                     <CardFooter className="flex justify-center items-center flex-col">
                                          <p>{show.first_air_date}</p>
@@ -66,8 +67,6 @@ export default function ShowsOnTHeAIr() {
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
             </Carousel>
         </div>
     </div>

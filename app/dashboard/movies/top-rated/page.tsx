@@ -63,7 +63,7 @@ export default function PopularMovie() {
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex justify-center items-center flex-col" >
-                     <img className="w-[75%]"
+                     <img className="w-[77%]"
                       src={movie.poster_path}/>
                 </CardContent>
                 <CardFooter className="flex justify-center items-center flex-col">
@@ -74,8 +74,6 @@ export default function PopularMovie() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
     </Carousel>
       </div>
       </div>
