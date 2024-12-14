@@ -57,8 +57,8 @@ export default function PopularMovie() {
           <CarouselContent>
          {movie?.map((movie) => (
           <CarouselItem key={movie.id}>
-            <div className="p-2">
-              <Card className="bg-gray-50 h-full">
+            <div className="p-2 ">
+              <Card className="bg-gray-50 ">
                 <CardHeader className="flex justify-center items-center flex-col">
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
