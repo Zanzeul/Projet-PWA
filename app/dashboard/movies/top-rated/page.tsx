@@ -33,7 +33,7 @@ export default function PopularMovie() {
 
     return (
         <div>
-        <h2> Now Playing Movies</h2>
+        <h2> Top Rated Movies</h2>
       <div className="hidden md:block">
        <div className=" flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%] no-scrollbar ">
             {movie?.map((movie) => 
@@ -63,7 +63,7 @@ export default function PopularMovie() {
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex justify-center items-center flex-col" >
-                     <img className="w-[75%]"
+                     <img className="w-[90%]"
                       src={movie.poster_path}/>
                 </CardContent>
                 <CardFooter className="flex justify-center items-center flex-col">
