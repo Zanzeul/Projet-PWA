@@ -11,13 +11,14 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
   } from "@/components/ui/carousel"
+  import { useDarkModeContext } from "@/app/context/DarkModeContext";
+  import { useRouter } from "next/navigation";
 
 export default function ShowsOnTHeAIr() {
     const { show, isError, isLoading } = useFetchOnTheAirShows();
-
+    const {darkMode}  = useDarkModeContext()
+    const router = useRouter();
     if (isLoading) {
         return <p>Chargement en cours...</p>;
     }
@@ -32,7 +33,9 @@ export default function ShowsOnTHeAIr() {
         <div className="hidden md:block">
            <div className="flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%] no-scrollbar">
                 {show?.map((show) => 
-                    <Card key = {show.id} className="bg-gray-50 w-1/5 flex-shrink-0">
+                         <Card onClick = { () => {router.push("/dashboard/shows/" + show.id)}} key = {show.id} className={`${
+                            darkMode.etat ? 'bg-gray-800 text-white  border-black' : 'bg-gray-50'
+                            } w-1/5 flex-shrink-0`} >
                         <CardHeader>
                             <CardTitle >{show.name}</CardTitle>
                         </CardHeader>
@@ -52,7 +55,10 @@ export default function ShowsOnTHeAIr() {
                     {show?.map((show) => (
                         <CarouselItem key={show.id}>
                             <div className="p-2">
-                                <Card className="bg-gray-50 ">
+                            <Card onClick = { () => {router.push("/dashboard/shows/" + show.id)}}
+                                className={`${
+                                darkMode.etat ? 'bg-gray-800 text-white  border-black' : 'bg-gray-50'
+                                } h-full`} >
                                     <CardHeader className="flex justify-center items-center flex-col">
                                         <CardTitle >{show.name}</CardTitle>
                                     </CardHeader>

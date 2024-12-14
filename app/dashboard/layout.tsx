@@ -9,6 +9,7 @@ import { Header } from "./design/Header";
 import { Sidebar } from "./design/Sidebar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AppRepositoryContextProvider from "../context/AppRepositoryContext";
+import DarkModeProvider from "../context/DarkModeContext";
 
 
 const geistSans = localFont({
@@ -39,13 +40,15 @@ export default function RootLayout({
         <div className = "h-screen w-screen flex  justify-center items-center">
           <QueryClientProvider client = {queryClient}>
             <AppRepositoryContextProvider>
-              <ApplicationLayout>
-                <Header>
-                  🎬 Cinetica
-                </Header>
-                <Sidebar></Sidebar>
-                <Content>{children}</Content>
-              </ApplicationLayout>
+              <DarkModeProvider>
+                <ApplicationLayout>
+                  <Header>
+                    🎬 Cinetica
+                  </Header>
+                  <Sidebar></Sidebar>
+                  <Content>{children}</Content>
+                </ApplicationLayout>
+                </DarkModeProvider>
             </AppRepositoryContextProvider>
           </QueryClientProvider>
         </div>

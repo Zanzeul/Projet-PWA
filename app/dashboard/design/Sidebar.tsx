@@ -1,15 +1,20 @@
 import { PropsWithChildren } from "react";
 import { useRouter } from "next/navigation";
 import { LayoutGrid, Film, Users, Smile, Airplay } from "lucide-react";
+import { useDarkModeContext } from "@/app/context/DarkModeContext";
 
 export const Sidebar = ({ children }: PropsWithChildren) => {
   const router = useRouter();
-
+  const {darkMode}  = useDarkModeContext()
   return (
-    <div>
+    <div className={`${
+      darkMode.etat ? 'bg-gray-600 text-white' : 'bg-white'
+  } `}>
       {/* Sidebar pour écran PC */}
       <div
-        className="hidden lg:flex bg-white w-full h-full border-r border-black flex-col pt-3"
+        className={`${
+          darkMode.etat ? 'bg-gray-600 text-white' : 'bg-white'
+      } hidden md:flex w-full h-full border-r border-black flex-col pt-3`}
         style={{ gridArea: "sidebar" }}
       >
         <button
@@ -60,7 +65,9 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
       </div>
 
       {/* Sidebar pour écran mobile */}
-      <div className="overflow-hidden lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-black py-2 h-10%">
+      <div className={`${
+          darkMode.etat ? 'bg-gray-600 text-white' : 'bg-white'
+      } overflow-hidden lg:hidden fixed bottom-0 left-0 right-0 border-t border-black py-2`}>
         <div className="flex justify-around items-center text-xs">
           {/* Section Discover */}
           <button

@@ -12,15 +12,14 @@ import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
   } from "@/components/ui/carousel"
   import { useRouter } from "next/navigation";
+  import { useDarkModeContext } from "@/app/context/DarkModeContext";
 
 export default function PopularMovie() {
     const { movie, isError, isLoading } = useFetchPopularMovies();
     const router = useRouter()
-
+    const {darkMode}  = useDarkModeContext()
     if (isLoading) {
         return <p>Chargement en cours...</p>;
     }
@@ -37,7 +36,9 @@ export default function PopularMovie() {
       <div className="hidden md:block">
        <div className=" flex gap-2 overflow-auto mt-[10%] mx-5 h-[65%] no-scrollbar ">
             {movie?.map((movie) => 
-                <Card onClick = { () => {router.push("/dashboard/movies/detail")}} key = {movie.id} className="bg-gray-50 w-1/5 flex-shrink-0">
+                                <Card onClick = { () => {router.push("/dashboard/movies/" + movie.id)}} key = {movie.id} className={`${
+                                  darkMode.etat ? 'bg-gray-800 text-white  border-black' : 'bg-gray-50'
+                              } w-1/5 flex-shrink-0`} >
                 <CardHeader>
                  <CardTitle >{movie.title}</CardTitle>
                  <CardDescription ></CardDescription>
@@ -58,7 +59,10 @@ export default function PopularMovie() {
          {movie?.map((movie) => (
           <CarouselItem key={movie.id}>
             <div className="p-2">
-              <Card className="bg-gray-50 ">
+            <Card onClick = { () => {router.push("/dashboard/movies/" + movie.id)}}
+                    className={`${
+                        darkMode.etat ? 'bg-gray-800 text-white  border-black' : 'bg-gray-50'
+                    } h-full`} >
                 <CardHeader className="flex justify-center items-center flex-col">
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
