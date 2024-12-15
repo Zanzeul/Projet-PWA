@@ -48,7 +48,7 @@ export default function Page({params}: { params: { id: string } }) {
                     <CardContent className="flex justify-center items-center flex-col">
                         <p>{details?.show.overview}</p>
                         <p> Nombre de saisons : {details?.show.number_of_seasons}</p>
-                        <p> Nombre d'épisodes : {details?.show.number_of_episodes}</p>
+                        <p> Nombre d&apos;épisodes : {details?.show.number_of_episodes}</p>
                     </CardContent>
                         <p>Moyennes de notes sur {details?.show.vote_count} avis</p>
                         <Progress className="w-1/5" value={details?.show.vote_average ?  details?.show.vote_average*10 : 0}/>
