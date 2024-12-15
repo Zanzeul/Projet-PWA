@@ -14,7 +14,6 @@ import {
     CarouselItem,
   } from "@/components/ui/carousel"
   import { useDarkModeContext } from "@/app/context/DarkModeContext";
-  
   import { useRouter } from "next/navigation";
 
 export default function NowPlayingMovie() {
