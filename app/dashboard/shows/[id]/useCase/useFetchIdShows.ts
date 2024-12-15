@@ -9,7 +9,7 @@ export const useFetchIdShows = (id : string) => {
     const { detailsShowRepository} = useAppRepositoryContext();
 
     const { data, isLoading, isError} = useQuery<DetailsShow>({
-        queryKey :  ["movies-details"],
+        queryKey :  ["shows-details"],
         queryFn: async () => await detailsShowRepository.getByIdShows(id),
      });
 
