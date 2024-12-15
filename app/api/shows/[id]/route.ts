@@ -54,7 +54,7 @@ export async function GET(request : Request , {params} : {params : {id : string}
       }));
 
       const show: Show = {
-        name: data_show.title,             
+        name: data_show.name,             
         overview: data_show.overview,      
         tagline: data_show.tagline,
         first_air_date: data_show.release_date,     
