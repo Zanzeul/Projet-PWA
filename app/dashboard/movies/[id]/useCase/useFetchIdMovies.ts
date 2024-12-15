@@ -2,15 +2,15 @@
 
 import { useAppRepositoryContext } from "@/app/context/AppRepositoryContext";
 import { useQuery } from "@tanstack/react-query"
-import { Details } from "@/entities/Details"
+import { DetailsMovie } from "@/entities/DetailsMovie"
 
 
 export const useFetchIdMovies = (id : string) => {
-    const { detailsRepository} = useAppRepositoryContext();
+    const { detailsMovieRepository} = useAppRepositoryContext();
 
-    const { data, isLoading, isError} = useQuery<Details>({
+    const { data, isLoading, isError} = useQuery<DetailsMovie>({
         queryKey :  ["movies-details"],
-        queryFn: async () => await detailsRepository.getByIdMovies(id),
+        queryFn: async () => await detailsMovieRepository.getByIdMovies(id),
      });
 
      return { details : data, isLoading, isError};

@@ -14,10 +14,13 @@ import {
     CarouselItem,
   } from "@/components/ui/carousel"
   import { useDarkModeContext } from "@/app/context/DarkModeContext"
+  import { useRouter } from "next/navigation";
+  
 
 export default function Discover() {
     const { discover, isError, isLoading } = useFetchDiscover();
     const {darkMode}  = useDarkModeContext()
+    const router = useRouter();
 
     if (isLoading) {
         return <p>Chargement en cours...</p>;
@@ -35,7 +38,7 @@ export default function Discover() {
                 <h2 className="m-10">Discover Movies</h2>
                 <div className="flex gap-2 overflow-auto mx-5 h-[65%]= ">
                 {discover?.movie.map((movie) => 
-                    <Card key = {movie.id} className={`${
+                    <Card onClick = { () => {router.push("/dashboard/movies/" + movie.id)}} key = {movie.id} className={`${
                         darkMode.etat ? 'bg-gray-800 text-white  border-black'  : 'bg-gray-50'
                     } flex-shrink-0`}>
                         <CardHeader>
@@ -54,7 +57,7 @@ export default function Discover() {
                 <h2 className="m-10">Discover Shows</h2>
                 <div className="flex gap-2 overflow-auto  mx-5 h-[65%] ">
                 {discover?.show.map((show) => 
-                    <Card key = {show.id} className={`${
+                    <Card onClick = { () => {router.push("/dashboard/shows/" + show.id)}} key = {show.id} className={`${
                         darkMode.etat ? 'bg-gray-800 text-white border-black' : 'bg-gray-50'
                     } flex-shrink-0`}>
                         <CardHeader>
@@ -78,7 +81,7 @@ export default function Discover() {
                     {discover?.movie.map((movie) => (
                         <CarouselItem key={movie.id}>
                             <div className="p-2">
-                                <Card className={`${
+                                <Card onClick = { () => {router.push("/dashboard/movies/" + movie.id)}} className={`${
                         darkMode.etat ? 'bg-gray-800 text-white  border-black' : 'bg-gray-50'
                     } flex-shrink-0`}>
                                     <CardHeader className="flex justify-center items-center flex-col">
@@ -102,7 +105,7 @@ export default function Discover() {
                     {discover?.show.map((show) => (
                         <CarouselItem key={show.id}>
                             <div className="p-2">
-                                <Card className={`${
+                                <Card onClick = { () => {router.push("/dashboard/shows/" + show.id)}} className={`${
                         darkMode.etat ? 'bg-gray-800 text-white  border-black' : 'bg-gray-50'
                     } flex-shrink-0`}>
                                     <CardHeader className="flex justify-center items-center flex-col">

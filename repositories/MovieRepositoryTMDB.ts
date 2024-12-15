@@ -1,12 +1,14 @@
 import { DiscoverRepository } from "./interfaces/DiscoverRepository";
 import { MovieRepository } from "./interfaces/MovieRepository";
-import { DetailsRepository } from "./interfaces/DetailsRepository";
+import { DetailsMovieRepository } from "./interfaces/DetailsMovieRepository";
+import { DetailsShowRepository } from "./interfaces/DetailsShowRepository";
 import { ShowRepository } from "./interfaces/ShowRepository";
 import { Movies } from "@/entities/Movies";
 import { TVShows } from "@/entities/TVShows";
-import { Details } from "@/entities/Details";
+import { DetailsMovie } from "@/entities/DetailsMovie";
+import { DetailsShow } from "@/entities/DetailsShow";
 
-export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowRepository, DiscoverRepository, DetailsRepository{
+export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowRepository, DiscoverRepository, DetailsMovieRepository, DetailsShowRepository{
 
     getPopularMovies(): Promise<Movies[]> {
         
@@ -131,19 +133,19 @@ export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowReposit
             
              return data
 
-        }
-
-        return fetchDiscover()
-    }
-
-    getByIdMovies( id : string): Promise<Details> {
-        
-        async function fetchByIdMovies() {
-            const response = await fetch("/api/movies/" + id)
-
-            if(!response.ok){
-                return Error("Cquetuveux")
             }
+    
+            return fetchDiscover()
+        }
+    
+        getByIdMovies( id : string): Promise<DetailsMovie> {
+            
+            async function fetchByIdMovies() {
+                const response = await fetch("/api/movies/" + id)
+    
+                if(!response.ok){
+                    return Error("Cquetuveux")
+                }
 
              const data = await response.json()
              
@@ -155,7 +157,7 @@ export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowReposit
         return fetchByIdMovies()
     }
 
-    getByIdShows( id : string): Promise<Details> {
+    getByIdShows( id : string): Promise<DetailsShow> {
         
         async function fetchByIdShows() {
             const response = await fetch("/api/shows/" + id)

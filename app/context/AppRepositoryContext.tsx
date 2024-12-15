@@ -5,14 +5,16 @@ import { DiscoverRepository } from "@/repositories/interfaces/DiscoverRepository
 import { MovieAndShowsRepositoryTMDB } from "@/repositories/MovieRepositoryTMDB";
 import { useContext, createContext } from "react";
 import { PropsWithChildren } from "react";
-import { DetailsRepository } from "@/repositories/interfaces/DetailsRepository";
-
+import { DetailsMovieRepository } from "@/repositories/interfaces/DetailsMovieRepository";
+import { DetailsShowRepository } from "@/repositories/interfaces/DetailsShowRepository";
 
 interface Repository{
     movieRepository : MovieRepository;
     showRepository : ShowRepository;
     discoverRepository : DiscoverRepository;
-    detailsRepository : DetailsRepository
+    detailsMovieRepository : DetailsMovieRepository;
+    detailsShowRepository : DetailsShowRepository;
+
 }
 
 const AppRepositoryContext= createContext <Repository | null >(null);
@@ -29,7 +31,7 @@ export const useAppRepositoryContext = () => {
 
 const AppRepositoryContextProvider = ({children} : PropsWithChildren) => {
     return (
-       <AppRepositoryContext.Provider value = {{ movieRepository : new MovieAndShowsRepositoryTMDB(), showRepository : new MovieAndShowsRepositoryTMDB, discoverRepository : new MovieAndShowsRepositoryTMDB(),detailsRepository : new MovieAndShowsRepositoryTMDB()}}>
+       <AppRepositoryContext.Provider value = {{ movieRepository : new MovieAndShowsRepositoryTMDB(), showRepository : new MovieAndShowsRepositoryTMDB, discoverRepository : new MovieAndShowsRepositoryTMDB(),detailsMovieRepository : new MovieAndShowsRepositoryTMDB(),detailsShowRepository : new MovieAndShowsRepositoryTMDB()}}>
             {children}
         </AppRepositoryContext.Provider> 
     )

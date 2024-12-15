@@ -1,7 +1,6 @@
 'use client'
 import { useDarkModeContext } from "@/app/context/DarkModeContext";
-import { useRouter } from "next/navigation";
-import { useFetchIdMovies } from "./useCase/useFetchIdMovies";
+import { useFetchIdShows } from "./useCase/useFetchIdShows";
 import {
     Card,
     CardContent,
@@ -14,8 +13,7 @@ import {
   import { Progress } from "@/components/ui/progress";
 
 export default function Page({params}: { params: { id: string } }) {
-    const { details, isError, isLoading } = useFetchIdMovies(params.id);
-    const router = useRouter();
+    const { details, isError, isLoading } = useFetchIdShows(params.id);
     const {darkMode}  = useDarkModeContext()
     
     
@@ -33,14 +31,14 @@ export default function Page({params}: { params: { id: string } }) {
                     darkMode.etat ? 'bg-gray-800 text-white  border-black' : 'bg-gray-50'
                     } flex justify-center items-center flex-col`} >
                     <CardHeader>
-                    <CardTitle >{details?.movie.title}</CardTitle>
+                    <CardTitle >{details?.show.name}</CardTitle>
                     <CardDescription></CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <img className="rounded-md"src={details?.movie.poster_path} alt="poster" />
+                        <img className="rounded-md"src={details?.show.poster_path} alt="poster" />
                     </CardContent>
                     <CardFooter>
-                        <p>{details?.movie.tagline}</p>
+                        <p>{details?.show.tagline}</p>
                     </CardFooter>
                      </Card>
             
@@ -48,11 +46,13 @@ export default function Page({params}: { params: { id: string } }) {
                     darkMode.etat ? 'bg-gray-700 text-white  border-black' : ' bg-gray-50'
                     } flex justify-center items-center flex-col mt-10 sm:ml-10 p-5 w-full sm:w-1/2 `} >
                     <CardContent className="flex justify-center items-center flex-col">
-                        <p>{details?.movie.overview}</p>
+                        <p>{details?.show.overview}</p>
+                        <p> Nombre de saisons : {details?.show.number_of_seasons}</p>
+                        <p> Nombre d'épisodes : {details?.show.number_of_episodes}</p>
                     </CardContent>
-                        <p>Moyennes de notes sur {details?.movie.vote_count} avis</p>
-                        <Progress className="w-1/5" value={details?.movie.vote_average ?  details?.movie.vote_average*10 : 0}/>
-                        <p>({details?.movie.vote_average})</p>
+                        <p>Moyennes de notes sur {details?.show.vote_count} avis</p>
+                        <Progress className="w-1/5" value={details?.show.vote_average ?  details?.show.vote_average*10 : 0}/>
+                        <p>({details?.show.vote_average})</p>
                 </Card> 
             </div>
             <div className=" flex gap-2 overflow-auto m-5 p-5">
