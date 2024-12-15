@@ -40,7 +40,7 @@ export default function ShowsOnTHeAIr() {
                             <CardTitle >{show.name}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <img className="w-[300px]" src={show.poster_path}/>
+                            <img className="w-[300px] rounded-md" src={show.poster_path}/>
                         </CardContent>
                         <CardFooter>
                             <p>{show.first_air_date}</p>
@@ -63,7 +63,7 @@ export default function ShowsOnTHeAIr() {
                                         <CardTitle >{show.name}</CardTitle>
                                     </CardHeader>
                                     <CardContent className="flex justify-center items-center flex-col" >
-                                        <img className="w-[77%]" src={show.poster_path}/>
+                                        <img className="w-[77%] rounded-md" src={show.poster_path}/>
                                     </CardContent>
                                     <CardFooter className="flex justify-center items-center flex-col">
                                          <p>{show.first_air_date}</p>

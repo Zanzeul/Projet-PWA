@@ -43,7 +43,7 @@ export default function Discover() {
                         <CardDescription ></CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <img className="w-[300px]" src={movie.poster_path}/>
+                            <img className="w-[300px] rounded-md" src={movie.poster_path}/>
                         </CardContent>
                         <CardFooter>
                             <p>{movie.release_date}</p>
@@ -62,7 +62,7 @@ export default function Discover() {
                         <CardDescription ></CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <img className="w-[300px]" src={show.poster_path}/>
+                            <img className="w-[300px] rounded-md" src={show.poster_path}/>
                         </CardContent>
                         <CardFooter>
                             <p>{show.first_air_date}</p>
@@ -85,7 +85,7 @@ export default function Discover() {
                                         <CardTitle >{movie.title}</CardTitle>
                                     </CardHeader>
                                     <CardContent className="flex justify-center items-center flex-col" >
-                                        <img className="w-[77%]" src={movie.poster_path}/>
+                                        <img className="w-[77%] rounded-md" src={movie.poster_path}/>
                                     </CardContent>
                                     <CardFooter className="flex justify-center items-center flex-col">
                                          <p>{movie.release_date}</p>
@@ -109,7 +109,7 @@ export default function Discover() {
                                         <CardTitle >{show.name}</CardTitle>
                                     </CardHeader>
                                     <CardContent className="flex justify-center items-center flex-col" >
-                                        <img className="w-[77%]" src={show.poster_path}/>
+                                        <img className="w-[77%] rounded-md" src={show.poster_path}/>
                                     </CardContent>
                                     <CardFooter className="flex justify-center items-center flex-col">
                                          <p>{show.first_air_date}</p>

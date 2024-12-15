@@ -46,7 +46,7 @@ export default function NowPlayingMovie() {
                  <CardDescription ></CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <img className="w-[300px]" src={movie.poster_path}/>
+                    <img className="w-[300px] rounded-md" src={movie.poster_path}/>
                 </CardContent>
                 <CardFooter>
                     <p>{movie.release_date}</p>
@@ -69,7 +69,7 @@ export default function NowPlayingMovie() {
                     <CardTitle >{movie.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex justify-center items-center flex-col" >
-                     <img className="w-[77%]"
+                     <img className="w-[77%] rounded-md"
                       src={movie.poster_path}/>
                 </CardContent>
                 <CardFooter className="flex justify-center items-center flex-col">

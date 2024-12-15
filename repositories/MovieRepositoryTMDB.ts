@@ -1,12 +1,12 @@
 import { DiscoverRepository } from "./interfaces/DiscoverRepository";
 import { MovieRepository } from "./interfaces/MovieRepository";
-import { PeoplesRepository } from "./interfaces/PeoplesRepository";
+import { DetailsRepository } from "./interfaces/DetailsRepository";
 import { ShowRepository } from "./interfaces/ShowRepository";
 import { Movies } from "@/entities/Movies";
 import { TVShows } from "@/entities/TVShows";
-import { Peoples } from "@/entities/Peoples";
+import { Details } from "@/entities/Details";
 
-export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowRepository, DiscoverRepository, PeoplesRepository{
+export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowRepository, DiscoverRepository, DetailsRepository{
 
     getPopularMovies(): Promise<Movies[]> {
         
@@ -136,7 +136,7 @@ export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowReposit
         return fetchDiscover()
     }
 
-    getByIdMovies( id : string): Promise<Peoples> {
+    getByIdMovies( id : string): Promise<Details> {
         
         async function fetchByIdMovies() {
             const response = await fetch("/api/movies/" + id)
@@ -155,7 +155,7 @@ export class MovieAndShowsRepositoryTMDB implements MovieRepository, ShowReposit
         return fetchByIdMovies()
     }
 
-    getByIdShows( id : string): Promise<Peoples> {
+    getByIdShows( id : string): Promise<Details> {
         
         async function fetchByIdShows() {
             const response = await fetch("/api/shows/" + id)
