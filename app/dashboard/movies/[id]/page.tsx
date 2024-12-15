@@ -60,9 +60,9 @@ export default function Page({params}: { params: { id: string } }) {
                 {details?.images.map((images,index) => 
                     <Card key={index} className={`${
                     darkMode.etat ? 'bg-gray-900 text-white  border-black' : 'bg-gray-200'
-                }  flex-shrink-0  `} >
+                }  flex-shrink-0 w-[80%] sm:w-auto  `} >
                     <CardContent className = "flex justify-center items-center p-5 ">
-                        <img className="rounded-md" src={images.file_path} alt="movie_image" />
+                        <img className="  rounded-md" src={images.file_path} alt="movie_image" />
                     </CardContent>
                 </Card>
                 )}
